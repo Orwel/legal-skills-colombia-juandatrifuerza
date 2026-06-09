@@ -2,7 +2,7 @@
 
 **Skills jurídicos para derecho colombiano — compatibles con Claude, Cursor, GitHub Copilot, OpenAI Codex y cualquier herramienta que soporte el estándar Agent Skills.**
 
-Proyecto abierto de la comunidad jurídica colombiana.
+Proyecto abierto de la comunidad jurídica colombiana. **Cualquier abogado, estudiante de derecho o persona interesada puede aportar, corregir y proponer mejoras** — ver [Contribuir](#contribuir).
 
 ---
 
@@ -21,15 +21,29 @@ No es una colección de prompts genéricos. Es un sistema de instrucciones const
 
 Cada skill está diseñado para activarse automáticamente cuando el contexto lo requiere — sin que el usuario tenga que recordar instrucciones ni copiar y pegar prompts.
 
+### ¿Por qué no sirven los skills legales en inglés?
+
+Existen repositorios de skills legales en inglés — para derecho holandés, para startups de Delaware, para contratos de M&A anglosajones. Son buenos. Pero no sirven para ti.
+
+No conocen el **CGP**. No citan el **Código Civil colombiano** ni el **Código de Comercio**. No saben qué es una **tutela**, una **acción popular**, un **derecho de petición**, una **nulidad y restablecimiento del derecho**, una **acción de cumplimiento** o un **Habeas Data**. No entienden la diferencia entre el **proceso ordinario**, el **proceso verbal sumario**, el **proceso ejecutivo** ni el **proceso declarativo**. No calculan términos en **días hábiles** con vacancia judicial. No conocen el **CPACA**, la **contratación estatal**, ni los recursos de **reposición y apelación**.
+
+No saben qué es una **SAS**, cómo funciona la **tradición** en un inmueble, ni qué diferencia un **contrato de prestación de servicios** de un **contrato de trabajo** con subordinación. No liquidan **cesantías, prima ni vacaciones**. No aplican la **Ley 820** al arrendamiento de vivienda urbana. No revisan cláusulas bajo el **Estatuto del Consumidor**.
+
+No conocen la jurisprudencia de la **Corte Constitucional**, la **Corte Suprema** ni el **Consejo de Estado** — ni la diferencia entre una **SU de unificación** y un precedente común. Y lo peor: a veces responden con derecho **mexicano, español o estadounidense** disfrazado de análisis local.
+
+**legal-skills-colombia** sí. Skills construidos sobre legislación colombiana vigente, con artículos específicos, jurisprudencia verificable y la lógica procesal que usas todos los días — en tutelas, demandas, contratos, liquidaciones, due diligence y cálculo de términos. Se activan solos. Tú escribes el caso; el sistema aplica el derecho correcto.
+
+No reemplazan tu criterio. Liberan las horas que no lo requieren: redactar la primera versión de una tutela, revisar un contrato cláusula por cláusula, calcular un término, armar un concepto con la estructura correcta. El abogado decide; la IA opera con la lógica del derecho colombiano.
+
 ---
 
 ## Áreas cubiertas
 
 | Área | Skills disponibles |
 |---|---|
-| Análisis transversal | Análisis de archivos · Análisis jurisprudencial · Due diligence general · Elaboración de concepto jurídico |
+| Análisis transversal | Análisis de archivos · Análisis jurisprudencial · Due diligence general · Elaboración de concepto jurídico · Investigación jurídica |
 | Derecho administrativo | Derecho de petición · Nulidad y restablecimiento · Recursos de reposición y apelación |
-| Derecho civil | Análisis de riesgo contractual |
+| Derecho civil | Análisis de riesgo contractual · Creación de contratos |
 | Derecho comercial | Análisis de sociedades · Due diligence de empresa · Títulos valores |
 | Derecho constitucional | Redacción de tutela |
 | Derecho disciplinario | Queja disciplinaria |
@@ -40,7 +54,7 @@ Cada skill está diseñado para activarse automáticamente cuando el contexto lo
 | Derecho procesal | Cálculo de términos CGP · Redacción de demanda |
 | *Próximamente* | Derecho ambiental · Tributario · Propiedad intelectual |
 
-**Total: 22 skills · 10 áreas**
+**Total: 24 skills · 10 áreas**
 
 ---
 
@@ -88,6 +102,10 @@ Una vez instalados, los skills se activan automáticamente. Solo escribe tu soli
 
 > *"¿Cuál es la línea de la Corte Constitucional sobre el derecho al mínimo vital?"*
 
+> *"Necesito investigar la jurisprudencia y normativa sobre responsabilidad del Estado por falla del servicio en contratación. Arma el plan de investigación."*
+
+> *"Redacta un contrato de prestación de servicios de desarrollo de software entre dos SAS, con cláusulas de confidencialidad y propiedad intelectual."*
+
 ---
 
 ## Estructura del repositorio
@@ -109,7 +127,8 @@ legal-skills-colombia/
 │   ├── analisis-archivo-documentos/
 │   ├── analisis-jurisprudencial/
 │   ├── due-diligence-general/
-│   └── elaboracion-concepto-juridico/
+│   ├── elaboracion-concepto-juridico/
+│   └── investigacion-juridica/
 ├── derecho-administrativo/
 ├── derecho-civil/
 ├── derecho-comercial/
@@ -128,14 +147,48 @@ Cada carpeta de skill contiene un `SKILL.md` con frontmatter YAML y 7 secciones 
 
 ## Contribuir
 
-Ver [CONTRIBUTING.md](CONTRIBUTING.md) para el estándar de calidad y el proceso de contribución.
+Este es un proyecto de la comunidad. No lo construye una sola persona ni una sola firma: lo construyen los abogados que lo usan, lo prueban y lo corrigen.
+
+**¿Quién puede aportar?**
+
+- Abogados en ejercicio de cualquier área
+- Estudiantes de derecho
+- Profesionales de legaltech
+- Cualquier persona con interés en mejorar cómo la IA entiende el derecho colombiano
+
+**No necesitas saber programar.** Los skills son archivos de texto (`SKILL.md`) con instrucciones jurídicas. Si sabes redactar un concepto, revisar un contrato o estructurar una tutela, ya tienes lo necesario para contribuir.
+
+### Formas de participar
+
+| Si quieres… | Cómo hacerlo |
+|---|---|
+| Reportar un error en un skill | Abre un [Issue](https://github.com/Orwel/legal-skills-colombia-juandatrifuerza/issues) describiendo el skill, el error y la norma o sentencia correcta |
+| Proponer un cambio o mejora | Abre un Issue con tu propuesta, o un Pull Request si ya tienes el texto corregido |
+| Agregar un skill nuevo | Sigue la plantilla en `/templates/SKILL-template.md` y abre un PR |
+| Sugerir un área que falta | Abre un Issue con el nombre del skill que te gustaría ver (ej. tributario, ambiental, Habeas Data) |
+| Revisar la calidad jurídica | Comenta en un PR o Issue — tu revisión como abogado del área es tan valiosa como escribir el skill |
+
+### Proceso para contribuir un skill
+
+Ver [CONTRIBUTING.md](CONTRIBUTING.md) para el estándar de calidad completo.
 
 1. Haz fork del repositorio
 2. Crea una carpeta con el nombre del skill en el área correspondiente
 3. Escribe el `SKILL.md` siguiendo la plantilla en `/templates/SKILL-template.md`
 4. Abre un Pull Request con una descripción del skill y el área que cubre
 
-Los skills contribuidos deben estar fundamentados en legislación colombiana vigente y jurisprudencia verificable.
+Los skills contribuidos deben estar fundamentados en legislación colombiana vigente y jurisprudencia verificable — con artículos específicos y sentencias con corporación, número y año.
+
+### Áreas donde más se necesita ayuda
+
+- Derecho tributario
+- Derecho ambiental
+- Propiedad intelectual
+- Derecho migratorio
+- Protección de datos (Habeas Data)
+- Derecho del consumidor (SIC)
+
+Si no sabes por dónde empezar, abre un Issue con la pregunta *"¿Cómo puedo ayudar en [tu área]?"* y te orientamos.
 
 ---
 

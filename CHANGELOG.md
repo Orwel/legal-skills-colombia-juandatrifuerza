@@ -3,9 +3,9 @@
 ## v1.0.0 — junio 2025
 
 ### Áreas implementadas
-- Análisis transversal: análisis de archivos, análisis jurisprudencial, due diligence general, elaboración de concepto jurídico
+- Análisis transversal: análisis de archivos, análisis jurisprudencial, due diligence general, elaboración de concepto jurídico, investigación jurídica
 - Derecho administrativo: derecho de petición, nulidad y restablecimiento, recursos
-- Derecho civil: análisis de riesgo contractual
+- Derecho civil: análisis de riesgo contractual, creación de contratos
 - Derecho comercial: análisis de sociedades, due diligence de empresa, títulos valores
 - Derecho constitucional: redacción de tutela
 - Derecho disciplinario: queja disciplinaria
@@ -15,4 +15,4 @@
 - Derecho penal: análisis de tipicidad
 - Derecho procesal: cálculo de términos CGP, redacción de demanda
 
-**Total: 22 skills · 10 áreas del derecho colombiano**
+**Total: 24 skills · 10 áreas del derecho colombiano**
