@@ -41,7 +41,7 @@ No reemplazan tu criterio. Liberan las horas que no lo requieren: redactar la pr
 
 | Área | Skills disponibles |
 |---|---|
-| Análisis transversal | Análisis de archivos · Análisis jurisprudencial · Due diligence general · Elaboración de concepto jurídico · Investigación jurídica |
+| Análisis transversal | Anonimizador de documentos · Análisis de archivos · Análisis jurisprudencial · Due diligence general · Elaboración de concepto jurídico · Investigación jurídica |
 | Derecho administrativo | Derecho de petición · Nulidad y restablecimiento · Recursos de reposición y apelación |
 | Derecho civil | Análisis de riesgo contractual · Creación de contratos |
 | Derecho comercial | Análisis de sociedades · Due diligence de empresa · Títulos valores |
@@ -54,7 +54,7 @@ No reemplazan tu criterio. Liberan las horas que no lo requieren: redactar la pr
 | Derecho procesal | Cálculo de términos CGP · Redacción de demanda |
 | *Próximamente* | Derecho ambiental · Tributario · Propiedad intelectual |
 
-**Total: 24 skills · 10 áreas**
+**Total: 25 skills · 10 áreas**
 
 ---
 
@@ -119,6 +119,7 @@ legal-skills-colombia/
 ├── .cursorrules
 ├── templates/
 │   └── SKILL-template.md
+├── anonimizador-documentos/       ← herramienta local (.exe)
 ├── system-prompts/
 │   ├── litigante-civil.md
 │   ├── abogado-corporativo.md

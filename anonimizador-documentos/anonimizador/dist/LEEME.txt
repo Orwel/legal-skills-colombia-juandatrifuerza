@@ -1,0 +1,37 @@
+ANONIMIZADOR DE EXPEDIENTES — TRIFUERZA v6
+==========================================
+
+USO (sin instalar nada):
+
+  1. Doble clic en Anonimizador-Trifuerza.exe
+  2. Selecciona tu documento (.docx, .txt o .md)
+  3. Clic en ANALIZAR (detecta nombres, cedulas, empresas, etc.)
+  4. Clic en ANONIMIZAR → revisa las dos pestañas y confirma
+  5. Listo
+
+NOVEDADES v6:
+  - Telefonos: detecta el numero aunque este en otra linea del Word
+  - Nombres: detecta tras "el senor", "doctor", "empleado", etc.
+  - Gazetteer: nombres y apellidos hispanos frecuentes (Julian, Romero...)
+  - Una sola etiqueta por persona ([PERSONA_1], [PERSONA_2]...)
+  - Menos falsos positivos (frases legales ya no se marcan como persona)
+  - Verificacion final: avisa si quedo algun dato visible
+
+DETECTA AUTOMATICAMENTE:
+  - Nombres de personas y empresas (S.A., S.A.S., S.A. E.S.P., Ltda., etc.)
+  - Cedulas, NIT (con validacion DIAN), tarjeta profesional, pasaporte
+  - Correos, telefonos, direcciones, radicados, cuentas contrato
+  - Cualquier numero largo no publico (red de seguridad)
+
+REVISION INVERTIDA (pestaña Pendientes):
+  Muestra numeros y nombres que QUEDARON visibles. Marca los que
+  quieras anonimizar antes de confirmar.
+
+NO ANONIMIZA (datos publicos):
+  - Cortes, juzgados, tribunales, fiscalia
+  - Leyes, codigos, decretos, sentencias
+
+RESULTADO (junto al documento original):
+
+  expediente_ANONIMIZADO.docx    <- sube ESTE a la IA
+  expediente_EQUIVALENCIAS.csv   <- NUNCA lo subas

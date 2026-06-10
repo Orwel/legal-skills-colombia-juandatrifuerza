@@ -1,0 +1,4 @@
+# Anonimizador — artefactos de compilación
+anonimizador-documentos/anonimizador/build/
+anonimizador-documentos/anonimizador/dist/*.exe
+anonimizador-documentos/anonimizador/__pycache__/
