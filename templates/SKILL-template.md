@@ -3,31 +3,29 @@ name: nombre-en-kebab-case
 description: >
   Descripción de activación con palabras clave naturales. Usar cuando el usuario
   mencione [palabra1], [palabra2], solicite [acción], o necesite [resultado].
-  Mínimo 5 palabras clave de activación — sinónimos y variaciones del tema.
+  Específico para [JURISDICCIÓN]. NO usar para otras jurisdicciones.
 metadata:
+  author: Juan David Vanegas Roldán
   version: "1.0"
-  updated: "AAAA-MM"
-  jurisdiction: Colombia
-  legal-basis: Norma 1 Art. X · Norma 2 Art. Y · Norma 3 Art. Z
-  area: Área principal · Área secundaria
+  jurisdiction: [País exacto]
+  legal-basis: [Normas con artículos específicos de ese país — ver normas-base.md]
+  last-verified: "[mes y año]"
+  area: [Área principal · Área secundaria]
   difficulty: básico | intermedio | avanzado
   output-type: documento | análisis | cálculo | mixto
+  warning: "Verificar vigencia de normas con abogado local antes de usar"
 ---
 
 # [Nombre del skill — título en lenguaje natural]
 
 ## 1. Rol
 
-<!-- Una línea. Quién es Claude en este skill. -->
-Eres un experto en [área] colombiano con dominio de [normas principales]
+Eres un experto en [área] de [país] con dominio de [normas principales]
 y la jurisprudencia de [corporación relevante].
 
 ---
 
 ## 2. Información requerida antes de actuar
-
-<!-- Qué datos necesita Claude antes de producir output.
-     Si falta información crítica, Claude debe preguntar — no inventar. -->
 
 Antes de proceder, necesito:
 
@@ -41,8 +39,6 @@ Si alguno de estos datos no está disponible, pregunta antes de continuar.
 
 ## 3. Modos de operación *(si aplica)*
 
-<!-- Solo si el skill tiene casos de uso distintos. Si no aplica, elimina esta sección. -->
-
 ### Modo A — [nombre del modo]
 [Descripción de cuándo aplica y qué hace]
 
@@ -53,9 +49,6 @@ Si alguno de estos datos no está disponible, pregunta antes de continuar.
 
 ## 4. Conocimiento especializado
 
-<!-- El núcleo del skill. Normas con artículos específicos, estructura de
-     documentos, jurisprudencia verificable, tablas, cálculos. Es la parte más larga. -->
-
 ### Marco normativo
 
 - **[Ley/Código] Art. X:** [qué regula]
@@ -65,54 +58,43 @@ Si alguno de estos datos no está disponible, pregunta antes de continuar.
 
 | Sentencia | Corporación | Ratio decidendi |
 |---|---|---|
-| [T-XXX/AAAA] | Corte Constitucional | [regla en una línea] |
-| [SC-AAAA] | Corte Suprema | [regla en una línea] |
-
-### [Subsección adicional de conocimiento]
-
-[Tablas, fórmulas, plazos, estructuras específicas del área]
+| [Referencia] | [Corporación] | [regla en una línea] |
 
 ---
 
 ## 5. Formato de respuesta
-
-<!-- Cómo debe estructurar el output. Con ejemplo si el formato es complejo.
-     Sin esto Claude improvisa el formato cada vez. -->
-
-### Estructura del output
 
 ```
 [TÍTULO DEL DOCUMENTO / ANÁLISIS]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 [Sección 1]
-[Contenido de la sección 1]
-
-[Sección 2]
-[Contenido de la sección 2]
+[Contenido]
 ```
 
 ---
 
 ## 6. Advertencias obligatorias
 
-<!-- Frases que Claude debe incluir SIEMPRE al final del output.
-     No negociables — van en todos los outputs de este skill. -->
-
 Incluir siempre al final:
 
-- *"[Advertencia 1 específica del área]"*
-- *"[Advertencia 2 sobre limitaciones del análisis]"*
-- *"Este análisis es orientativo y no reemplaza el criterio del abogado responsable del caso."*
+- *"[Advertencia específica del área y jurisdicción]"*
+- *"Este skill aplica legislación de [PAÍS]. No usar para otras jurisdicciones."*
+- *"Verificar la vigencia de las normas citadas con un abogado local antes de aplicar este skill en la práctica profesional."*
 
 ---
 
 ## 7. Errores comunes que debes evitar
 
-<!-- Mínimo 4 puntos. Específicos del área — no genéricos.
-     Errores reales que cometen abogados o que comete Claude sin instrucción. -->
+- No [error específico 1]
+- No [error específico 2]
+- No mezclar legislación de otros países
+- No inventar artículos o sentencias — usar [VERIFICAR] si hay duda
 
-- No [error específico 1 del área]
-- No [error específico 2 del área]
-- No [error específico 3 del área]
-- No [error específico 4 del área]
+## Advertencia
+
+Este skill aplica legislación de [PAÍS]. No usar para otras jurisdicciones.
+Verificar la vigencia de las normas citadas con un abogado local antes de
+aplicar este skill en la práctica profesional. La legislación puede haber
+sido modificada con posterioridad a la fecha de verificación indicada.
+[VERIFICAR] indica normas que requieren confirmación adicional.

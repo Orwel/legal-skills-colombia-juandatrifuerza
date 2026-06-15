@@ -1,0 +1,135 @@
+# INSTRUCCIONES PARA CURSOR — legal-skills-hispanoamerica
+# Leer completamente antes de crear o modificar cualquier archivo
+
+## CONTEXTO DEL PROYECTO
+Repositorio de skills jurídicos para herramientas de IA, organizado por
+jurisdicción para 20 países hispanohablantes más un módulo de derecho anglosajón.
+
+Cada skill le dice a Claude cómo abordar una tarea jurídica específica
+en un país específico, con la legislación correcta de ese país.
+
+---
+
+## REGLAS ABSOLUTAS — NUNCA VIOLAR
+
+### REGLA 1 — Aislamiento jurisdiccional total
+NUNCA mezclar legislación entre países.
+- Un skill de México NUNCA cita el CGP colombiano.
+- Un skill de Argentina NUNCA aplica el Código Civil español.
+- Un skill de Chile NUNCA usa normas peruanas.
+- Cada jurisdicción es un mundo cerrado y autosuficiente.
+
+### REGLA 2 — Leer normas-base.md ANTES de crear cualquier skill
+Antes de escribir un solo artículo en un skill, abrir y leer
+el archivo normas-base.md de esa jurisdicción.
+SOLO citar normas que aparezcan en ese archivo.
+Si una norma no está en normas-base.md → marcar [VERIFICAR].
+
+### REGLA 3 — NUNCA inventar legislación
+Si no puedes confirmar un artículo específico:
+- CORRECTO: "[VERIFICAR: Art. X de la Ley Y de país Z]"
+- INCORRECTO: inventar el artículo y citarlo como real
+Es preferible un skill con [VERIFICAR] que uno con artículos falsos.
+Un abogado que usa un artículo falso en un escrito tiene un problema serio.
+
+### REGLA 4 — Frontmatter obligatorio y completo
+Todo SKILL.md DEBE tener este frontmatter exacto:
+---
+name: nombre-en-kebab-case
+description: >
+  Descripción de activación. Usar cuando el usuario mencione [palabras clave].
+  Específico para [JURISDICCIÓN]. NO usar para otras jurisdicciones.
+metadata:
+  author: Juan David Vanegas Roldán
+  version: "1.0"
+  jurisdiction: [nombre exacto del país]
+  legal-basis: [normas con artículos específicos de ese país]
+  last-verified: "[mes y año]"
+  output-type: documento | análisis | cálculo | mixto
+  warning: "Verificar vigencia de normas con abogado local antes de usar"
+---
+
+### REGLA 5 — Advertencia obligatoria al final de todo skill
+Todo skill DEBE terminar con esta sección:
+
+## Advertencia
+Este skill aplica legislación de [PAÍS]. No usar para otras jurisdicciones.
+Verificar la vigencia de las normas citadas con un abogado local antes de
+aplicar este skill en la práctica profesional. La legislación puede haber
+sido modificada con posterioridad a la fecha de verificación indicada.
+[VERIFICAR] indica normas que requieren confirmación adicional.
+
+### REGLA 6 — País con inestabilidad normativa
+Para Venezuela, Cuba y Nicaragua: agregar advertencia adicional:
+"Este skill requiere verificación especial. La legislación de [PAÍS]
+puede haber sido modificada significativamente. Consultar con abogado
+local antes de cualquier aplicación práctica."
+
+---
+
+## PROCESO para crear un skill nuevo
+
+1. IDENTIFICAR la jurisdicción exacta del skill
+2. ABRIR jurisdicciones/[país]/normas-base.md
+3. LEER el archivo completo antes de escribir nada
+4. IDENTIFICAR los artículos específicos aplicables al skill
+5. ESCRIBIR el skill citando SOLO artículos de normas-base.md
+6. MARCAR con [VERIFICAR] cualquier norma no confirmada
+7. INCLUIR la advertencia obligatoria al final
+8. VERIFICAR que el frontmatter está completo
+
+---
+
+## PROCESO para crear un normas-base.md nuevo
+
+Este es el archivo más crítico. Cuando Cursor lo crea:
+1. Solo incluir normas que puedas confirmar con alta certeza
+2. Incluir el número de artículo específico
+3. Marcar con [VERIFICAR] las normas con menor certeza
+4. Incluir la advertencia crítica del sistema al inicio
+5. Indicar características especiales del sistema jurídico del país
+6. NO incluir montos de salario mínimo — se actualizan
+7. NO incluir tasas de interés — cambian
+8. SÍ incluir la estructura normativa del país
+
+---
+
+## MÓDULO DE DERECHO ANGLOSAJÓN — reglas especiales
+
+El módulo en /derecho-anglosajon/ es para traducción y contratos bilingües.
+NO es para asesorar sobre derecho de EE.UU., UK, Canadá o Australia.
+Su propósito es ayudar a abogados de civil law a:
+- Entender conceptos del common law sin equivalente en civil law
+- Redactar contratos bilingües español/inglés
+- Identificar diferencias conceptuales que afectan la traducción
+
+En skills de este módulo:
+- Explicar siempre la diferencia conceptual con el equivalente en civil law
+- No asumir que los términos son equivalentes — generalmente no lo son
+- En contratos bilingües, indicar siempre cuál versión prevalece
+
+---
+
+## ESTRUCTURA DE ARCHIVOS — no cambiar sin razón
+
+```
+jurisdicciones/[país]/
+├── normas-base.md          ← LEER PRIMERO
+├── system-prompts/         ← instrucciones para Projects
+│   └── [tipo-abogado].md
+├── [area-derecho]/
+│   └── [nombre-skill]/
+│       └── SKILL.md
+```
+
+---
+
+## VERIFICACIÓN final antes de hacer commit
+
+□ ¿El skill declara su jurisdicción en el frontmatter?
+□ ¿Se leyó normas-base.md antes de crear el skill?
+□ ¿Todos los artículos citados están en normas-base.md?
+□ ¿Las normas inciertas están marcadas con [VERIFICAR]?
+□ ¿El skill incluye la advertencia obligatoria al final?
+□ ¿No se mezcló legislación de otros países?
+□ ¿El frontmatter está completo con todos los campos?

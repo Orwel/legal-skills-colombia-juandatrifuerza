@@ -1,18 +1,35 @@
 # Changelog
 
-## v1.0.0 — junio 2025
+## [0.2.0] — 2025-06
 
-### Áreas implementadas
-- Análisis transversal: análisis de archivos, análisis jurisprudencial, due diligence general, elaboración de concepto jurídico, investigación jurídica
-- Derecho administrativo: derecho de petición, nulidad y restablecimiento, recursos
-- Derecho civil: análisis de riesgo contractual, creación de contratos
-- Derecho comercial: análisis de sociedades, due diligence de empresa, títulos valores
-- Derecho constitucional: redacción de tutela
-- Derecho disciplinario: queja disciplinaria
-- Derecho de familia: custodia y alimentos, divorcio, sucesiones
-- Derecho inmobiliario: contrato de arrendamiento, promesa de compraventa
-- Derecho laboral: análisis de contrato de trabajo
-- Derecho penal: análisis de tipicidad
-- Derecho procesal: cálculo de términos CGP, redacción de demanda
+### Cambiado
+- Repositorio renombrado de `legal-skills-colombia` a `legal-skills-hispanoamerica`
+- Estructura multijurisdiccional: Colombia bajo `jurisdicciones/colombia/`
+- Anonimizador movido a `jurisdicciones/colombia/anonimizador-documentos/`
 
-**Total: 24 skills · 10 áreas del derecho colombiano**
+### Agregado
+- **14 jurisdicciones adicionales**: 5 skills transversales cada una (70 archivos)
+  - Bolivia, Ecuador, Venezuela, Paraguay, Uruguay, Panamá, Costa Rica
+  - Nicaragua, Honduras, El Salvador, Guatemala, Cuba, Rep. Dominicana, Puerto Rico
+- Script `_generate_tier2.py` para regenerar skills Tier 2
+
+## [0.1.0] — 2025-06
+
+### Agregado
+- Estructura multijurisdiccional con 20 países + módulo anglosajón
+- `normas-base.md` para 19 jurisdicciones hispanohablantes
+- **Colombia**: migración completa de 25 skills desde legal-skills-colombia
+- **Tier 1** (México, Argentina, Chile, Perú, España): 5 skills transversales cada uno
+  - investigacion-juridica
+  - analisis-jurisprudencial
+  - elaboracion-concepto-juridico
+  - due-diligence-general
+  - analisis-archivo-documentos
+- Templates: `SKILL-template.md` y `normas-base-template.md`
+- System-prompts por jurisdicción Tier 1
+- `.cursorrules` con reglas de aislamiento jurisdiccional
+- `CONTRIBUTING.md` con protocolo de calidad normativa
+
+### Notas
+- Fuentes marcadas con `[VERIFICAR]` requieren confirmación antes de uso profesional
+- Venezuela, Cuba y Nicaragua: solo normas-base (advertencia de inestabilidad normativa)

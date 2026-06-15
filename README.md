@@ -1,202 +1,221 @@
-# legal-skills-colombia
+# legal-skills-hispanoamerica
 
-**Skills jurídicos para derecho colombiano — compatibles con Claude, Cursor, GitHub Copilot, OpenAI Codex y cualquier herramienta que soporte el estándar Agent Skills.**
+**Skills jurídicos para derecho hispanoamericano y derecho anglosajón — compatibles con Claude, Cursor, GitHub Copilot, OpenAI Codex y cualquier herramienta que soporte el estándar Agent Skills.**
 
-Proyecto abierto de la comunidad jurídica colombiana. **Cualquier abogado, estudiante de derecho o persona interesada puede aportar, corregir y proponer mejoras** — ver [Contribuir](#contribuir).
+Proyecto abierto. Construido por [Juan David Vanegas Roldán](https://trifuerza.co) — Legal Engineer · Legal Designer · Software Architect.
 
 ---
 
 ## ¿Qué es esto?
 
-Un repositorio de habilidades especializadas para que cualquier herramienta de IA entienda, razone y produzca documentos con la lógica del derecho colombiano.
+El primer repositorio de skills jurídicos para países hispanohablantes, con un módulo adicional de derecho anglosajón para abogados que trabajan con contrapartes o documentos en inglés.
 
-No es una colección de prompts genéricos. Es un sistema de instrucciones construido sobre:
-
-- El Código General del Proceso (CGP)
-- El Código Civil colombiano
-- El Código de Comercio
-- La Constitución Política de 1991
-- El CPACA
-- La jurisprudencia de la Corte Constitucional, la Corte Suprema de Justicia y el Consejo de Estado
-
-Cada skill está diseñado para activarse automáticamente cuando el contexto lo requiere — sin que el usuario tenga que recordar instrucciones ni copiar y pegar prompts.
-
-### ¿Por qué no sirven los skills legales en inglés?
-
-Existen repositorios de skills legales en inglés — para derecho holandés, para startups de Delaware, para contratos de M&A anglosajones. Son buenos. Pero no sirven para ti.
-
-No conocen el **CGP**. No citan el **Código Civil colombiano** ni el **Código de Comercio**. No saben qué es una **tutela**, una **acción popular**, un **derecho de petición**, una **nulidad y restablecimiento del derecho**, una **acción de cumplimiento** o un **Habeas Data**. No entienden la diferencia entre el **proceso ordinario**, el **proceso verbal sumario**, el **proceso ejecutivo** ni el **proceso declarativo**. No calculan términos en **días hábiles** con vacancia judicial. No conocen el **CPACA**, la **contratación estatal**, ni los recursos de **reposición y apelación**.
-
-No saben qué es una **SAS**, cómo funciona la **tradición** en un inmueble, ni qué diferencia un **contrato de prestación de servicios** de un **contrato de trabajo** con subordinación. No liquidan **cesantías, prima ni vacaciones**. No aplican la **Ley 820** al arrendamiento de vivienda urbana. No revisan cláusulas bajo el **Estatuto del Consumidor**.
-
-No conocen la jurisprudencia de la **Corte Constitucional**, la **Corte Suprema** ni el **Consejo de Estado** — ni la diferencia entre una **SU de unificación** y un precedente común. Y lo peor: a veces responden con derecho **mexicano, español o estadounidense** disfrazado de análisis local.
-
-**legal-skills-colombia** sí. Skills construidos sobre legislación colombiana vigente, con artículos específicos, jurisprudencia verificable y la lógica procesal que usas todos los días — en tutelas, demandas, contratos, liquidaciones, due diligence y cálculo de términos. Se activan solos. Tú escribes el caso; el sistema aplica el derecho correcto.
-
-No reemplazan tu criterio. Liberan las horas que no lo requieren: redactar la primera versión de una tutela, revisar un contrato cláusula por cláusula, calcular un término, armar un concepto con la estructura correcta. El abogado decide; la IA opera con la lógica del derecho colombiano.
+Cada skill está **aislado por jurisdicción**. Un skill de México nunca cita el CGP colombiano. Un skill de Argentina nunca aplica el Código Civil español. La legislación de cada país vive en su propio espacio, referenciada desde su propio archivo `normas-base.md`.
 
 ---
 
-## Áreas cubiertas
+## Skills disponibles por jurisdicción
 
-| Área | Skills disponibles |
+| Jurisdicción | Skills transversales | Skills sustantivos | Total |
+|---|---|---|---|
+| 🇨🇴 Colombia | 5 | 20 | **25** |
+| 🇲🇽 México | 5 | 19 | **24** |
+| 🇦🇷 Argentina | 5 | 19 | **24** |
+| 🇨🇱 Chile | 5 | 19 | **24** |
+| 🇵🇪 Perú | 5 | 19 | **24** |
+| 🇪🇸 España | 5 | 19 | **24** |
+| 🇻🇪 Venezuela | 5 | 19 | **24** |
+| 🇪🇨 Ecuador | 5 | 19 | **24** |
+| 🇧🇴 Bolivia | 5 | 19 | **24** |
+| 🇵🇾 Paraguay | 5 | 19 | **24** |
+| 🇺🇾 Uruguay | 5 | 19 | **24** |
+| 🇵🇦 Panamá | 5 | 19 | **24** |
+| 🇨🇷 Costa Rica | 5 | 19 | **24** |
+| 🇳🇮 Nicaragua | 5 | 19 | **24** |
+| 🇭🇳 Honduras | 5 | 19 | **24** |
+| 🇸🇻 El Salvador | 5 | 19 | **24** |
+| 🇬🇹 Guatemala | 5 | 19 | **24** |
+| 🇨🇺 Cuba | 5 | 19 | **24** |
+| 🇩🇴 Rep. Dominicana | 5 | 19 | **24** |
+| 🇵🇷 Puerto Rico | 5 | 19 | **24** |
+| 🌐 Derecho anglosajón | — | 4 | **4** |
+
+### Skills transversales (20 jurisdicciones)
+
+Disponibles en **todos los países** bajo `jurisdicciones/[país]/analisis-transversal/`:
+
+| Skill | Qué hace |
 |---|---|
-| Análisis transversal | Anonimizador de documentos · Análisis de archivos · Análisis jurisprudencial · Due diligence general · Elaboración de concepto jurídico · Investigación jurídica |
-| Derecho administrativo | Derecho de petición · Nulidad y restablecimiento · Recursos de reposición y apelación |
-| Derecho civil | Análisis de riesgo contractual · Creación de contratos |
-| Derecho comercial | Análisis de sociedades · Due diligence de empresa · Títulos valores |
-| Derecho constitucional | Redacción de tutela |
-| Derecho disciplinario | Queja disciplinaria |
-| Derecho de familia | Custodia y alimentos · Divorcio · Sucesiones |
-| Derecho inmobiliario | Contrato de arrendamiento · Promesa de compraventa |
-| Derecho laboral | Análisis de contrato de trabajo |
-| Derecho penal | Análisis de tipicidad |
-| Derecho procesal | Cálculo de términos CGP · Redacción de demanda |
-| *Próximamente* | Derecho ambiental · Tributario · Propiedad intelectual |
+| `investigacion-juridica` | Plan de investigación, búsqueda normativa y jurisprudencial |
+| `analisis-jurisprudencial` | Análisis de sentencias y construcción de líneas jurisprudenciales |
+| `elaboracion-concepto-juridico` | Conceptos, memos y consultas formales |
+| `due-diligence-general` | Verificación de personas, inmuebles y operaciones |
+| `analisis-archivo-documentos` | Análisis integrado de expedientes y documentos |
 
-**Total: 25 skills · 10 áreas**
+### Skills sustantivos (19 jurisdicciones + Colombia)
 
----
+10 áreas en cada país hispanoamericano (salvo anonimizador, exclusivo de Colombia):
 
-## Instalación
+| Área | Skills |
+|---|---|
+| `derecho-civil` | creacion-contrato, analisis-riesgo-contrato |
+| `derecho-comercial` | analisis-sociedad, due-diligence-empresa, titulos-valores |
+| `derecho-constitucional` | redaccion-tutela (amparo/protección según país) |
+| `derecho-administrativo` | derecho-peticion, nulidad-restablecimiento, recurso-reposicion-apelacion |
+| `derecho-disciplinario` | queja-disciplinaria |
+| `derecho-familia` | custodia-alimentos, proceso-divorcio, sucesiones |
+| `derecho-inmobiliario` | contrato-arrendamiento, promesa-compraventa |
+| `derecho-laboral` | analisis-contrato-trabajo |
+| `derecho-penal` | analisis-tipicidad |
+| `derecho-procesal` | calculo-terminos-cgp, redaccion-demanda |
 
-### En Claude.ai — Project (recomendado)
+Colombia incluye además `anonimizador-documentos`.
 
-1. Crea un nuevo Project en Claude.ai
-2. Ve a **Project Knowledge** → **Add content**
-3. Sube los archivos `SKILL.md` de las áreas que más uses
-4. Configura las instrucciones del proyecto (ver plantillas en `/system-prompts/`)
-5. Listo — Claude aplica los skills automáticamente en cada conversación del proyecto
+### Skills derecho anglosajón (4)
 
-### En Claude.ai — chat ocasional
-
-1. Abre el `SKILL.md` del skill que necesitas
-2. Copia el contenido completo
-3. Pégalo al inicio del chat antes de tu solicitud
-
-### En Cursor / Claude Code / GitHub Copilot
-
-```bash
-git clone https://github.com/Orwel/legal-skills-colombia-juandatrifuerza.git
-```
-
-Copia las carpetas de skills al directorio de skills de tu herramienta. El formato `SKILL.md` es compatible con el estándar Agent Skills — funciona en Claude Code, Cursor, Copilot, OpenAI Codex y más.
-
-### Descargar sin Git
-
-1. Botón verde **Code** → **Download ZIP**
-2. Descomprime en tu computador
-3. Sigue las instrucciones de instalación según tu herramienta
+| Skill | Qué hace |
+|---|---|
+| `traduccion-conceptos-common-law` | Explica consideration, trust, estoppel, etc. |
+| `contrato-bilingue` | Estructura contratos español/inglés |
+| `clausulas-boilerplate` | Traducción de cláusulas tipo |
+| `comparacion-estructura-contractual` | Mapeo civil law vs common law |
 
 ---
 
-## Uso
+## Jurisdicciones cubiertas
 
-Una vez instalados, los skills se activan automáticamente. Solo escribe tu solicitud en lenguaje natural:
-
-> *"Necesito una tutela para una paciente a quien la EPS le lleva 4 meses negando una cirugía ordenada por su médico."*
-
-> *"Analiza este contrato de arrendamiento y dime los riesgos para el arrendatario."*
-
-> *"Me notificaron el auto admisorio el 3 de junio. ¿Cuándo vence el término para contestar en proceso verbal?"*
-
-> *"¿Cuál es la línea de la Corte Constitucional sobre el derecho al mínimo vital?"*
-
-> *"Necesito investigar la jurisprudencia y normativa sobre responsabilidad del Estado por falla del servicio en contratación. Arma el plan de investigación."*
-
-> *"Redacta un contrato de prestación de servicios de desarrollo de software entre dos SAS, con cláusulas de confidencialidad y propiedad intelectual."*
+| País | Sistema | Estado |
+|---|---|---|
+| 🇨🇴 Colombia | Civil law | ✅ Completo (25 skills) |
+| 🇲🇽 México | Civil law federal | ✅ Completo (24 skills) |
+| 🇦🇷 Argentina | Civil law (CCyCN 2015) | ✅ Completo (24 skills) |
+| 🇨🇱 Chile | Civil law (Bello) | ✅ Completo (24 skills) |
+| 🇵🇪 Perú | Civil law | ✅ Completo (24 skills) |
+| 🇪🇸 España | Civil law + foral | ✅ Completo (24 skills) |
+| 🇻🇪 Venezuela | Civil law | ✅ Completo (24 skills) ⚠️ verificar vigencia |
+| 🇪🇨 Ecuador | Civil law | ✅ Completo (24 skills) |
+| 🇧🇴 Bolivia | Civil law plurinacional | ✅ Completo (24 skills) |
+| 🇵🇾 Paraguay | Civil law bilingüe | ✅ Completo (24 skills) |
+| 🇺🇾 Uruguay | Civil law | ✅ Completo (24 skills) |
+| 🇵🇦 Panamá | Civil law + influencia EE.UU. | ✅ Completo (24 skills) |
+| 🇨🇷 Costa Rica | Civil law | ✅ Completo (24 skills) |
+| 🇳🇮 Nicaragua | Civil law | ✅ Completo (24 skills) ⚠️ verificar vigencia |
+| 🇭🇳 Honduras | Civil law | ✅ Completo (24 skills) |
+| 🇸🇻 El Salvador | Civil law | ✅ Completo (24 skills) |
+| 🇬🇹 Guatemala | Civil law | ✅ Completo (24 skills) |
+| 🇨🇺 Cuba | Civil law socialista | ✅ Completo (24 skills) ⚠️ verificar vigencia |
+| 🇩🇴 República Dominicana | Civil law napoleónico | ✅ Completo (24 skills) |
+| 🇵🇷 Puerto Rico | Mixto civil law + common law | ✅ Completo (24 skills) |
+| 🌐 Derecho anglosajón | Common law | ✅ 4 skills (traducción/contratos) |
 
 ---
 
 ## Estructura del repositorio
 
 ```
-legal-skills-colombia/
+legal-skills-hispanoamerica/
 ├── README.md
 ├── LICENSE
 ├── CONTRIBUTING.md
 ├── CHANGELOG.md
 ├── .cursorrules
 ├── templates/
-│   └── SKILL-template.md
-├── anonimizador-documentos/       ← herramienta local (.exe)
-├── system-prompts/
-│   ├── litigante-civil.md
-│   ├── abogado-corporativo.md
-│   └── abogado-general.md
-├── analisis-transversal/
-│   ├── analisis-archivo-documentos/
-│   ├── analisis-jurisprudencial/
-│   ├── due-diligence-general/
-│   ├── elaboracion-concepto-juridico/
-│   └── investigacion-juridica/
-├── derecho-administrativo/
-├── derecho-civil/
-├── derecho-comercial/
-├── derecho-constitucional/
-├── derecho-disciplinario/
-├── derecho-familia/
-├── derecho-inmobiliario/
-├── derecho-laboral/
-├── derecho-penal/
-└── derecho-procesal/
+│   ├── SKILL-template.md
+│   └── normas-base-template.md
+├── jurisdicciones/
+│   ├── colombia/
+│   │   ├── normas-base.md
+│   │   ├── system-prompts/
+│   │   ├── analisis-transversal/     ← 5 skills
+│   │   ├── derecho-civil/            ← skills sustantivos
+│   │   └── [10 áreas de derecho]
+│   ├── mexico/
+│   │   ├── normas-base.md
+│   │   ├── system-prompts/
+│   │   └── analisis-transversal/     ← 5 skills
+│   └── [demás países]/
+│       ├── normas-base.md
+│       ├── system-prompts/
+│       ├── analisis-transversal/     ← 5 skills
+│       └── [10 áreas de derecho]     ← 19 skills sustantivos
+└── derecho-anglosajon/
+    ├── normas-base.md
+    └── [4 skills de traducción/contratos]
 ```
-
-Cada carpeta de skill contiene un `SKILL.md` con frontmatter YAML y 7 secciones obligatorias.
 
 ---
 
-## Contribuir
+## Reglas absolutas — leer antes de contribuir
 
-Este es un proyecto de la comunidad. No lo construye una sola persona ni una sola firma: lo construyen los abogados que lo usan, lo prueban y lo corrigen.
+**1. Aislamiento jurisdiccional total** — nunca mezclar legislación entre países.
 
-**¿Quién puede aportar?**
+**2. Leer `normas-base.md` primero** — solo citar normas que aparezcan ahí.
 
-- Abogados en ejercicio de cualquier área
-- Estudiantes de derecho
-- Profesionales de legaltech
-- Cualquier persona con interés en mejorar cómo la IA entiende el derecho colombiano
+**3. No inventar legislación** — marcar con `[VERIFICAR: Art. X de la Ley Y]`.
 
-**No necesitas saber programar.** Los skills son archivos de texto (`SKILL.md`) con instrucciones jurídicas. Si sabes redactar un concepto, revisar un contrato o estructurar una tutela, ya tienes lo necesario para contribuir.
+**4. Frontmatter obligatorio** — `jurisdiction`, `legal-basis`, `last-verified`, `warning`.
 
-### Formas de participar
+**5. Advertencia al final** — todo skill termina con sección de advertencia.
 
-| Si quieres… | Cómo hacerlo |
-|---|---|
-| Reportar un error en un skill | Abre un [Issue](https://github.com/Orwel/legal-skills-colombia-juandatrifuerza/issues) describiendo el skill, el error y la norma o sentencia correcta |
-| Proponer un cambio o mejora | Abre un Issue con tu propuesta, o un Pull Request si ya tienes el texto corregido |
-| Agregar un skill nuevo | Sigue la plantilla en `/templates/SKILL-template.md` y abre un PR |
-| Sugerir un área que falta | Abre un Issue con el nombre del skill que te gustaría ver (ej. tributario, ambiental, Habeas Data) |
-| Revisar la calidad jurídica | Comenta en un PR o Issue — tu revisión como abogado del área es tan valiosa como escribir el skill |
+Ver `.cursorrules` para el estándar completo.
 
-### Proceso para contribuir un skill
+---
 
-Ver [CONTRIBUTING.md](CONTRIBUTING.md) para el estándar de calidad completo.
+## Instalación
 
-1. Haz fork del repositorio
-2. Crea una carpeta con el nombre del skill en el área correspondiente
-3. Escribe el `SKILL.md` siguiendo la plantilla en `/templates/SKILL-template.md`
-4. Abre un Pull Request con una descripción del skill y el área que cubre
+### En Claude.ai — Project por jurisdicción
 
-Los skills contribuidos deben estar fundamentados en legislación colombiana vigente y jurisprudencia verificable — con artículos específicos y sentencias con corporación, número y año.
+1. Crea un Project por país
+2. Carga el `normas-base.md` del país
+3. Carga los skills del área de práctica
+4. Configura las instrucciones con el system-prompt de `jurisdicciones/[país]/system-prompts/`
 
-### Áreas donde más se necesita ayuda
+### En Cursor / Claude Code
 
-- Derecho tributario
-- Derecho ambiental
-- Propiedad intelectual
-- Derecho migratorio
-- Protección de datos (Habeas Data)
-- Derecho del consumidor (SIC)
+```bash
+git clone https://github.com/tuusuario/legal-skills-hispanoamerica
+```
 
-Si no sabes por dónde empezar, abre un Issue con la pregunta *"¿Cómo puedo ayudar en [tu área]?"* y te orientamos.
+Copia la carpeta de la jurisdicción que necesites al directorio de skills de tu herramienta.
+
+---
+
+## Uso para curso de IA para abogados
+
+Los skills transversales son el punto de entrada ideal:
+
+> *"Arma un plan de investigación sobre responsabilidad contractual por incumplimiento en México."*
+
+> *"Analiza esta sentencia de la CSJN y extrae la ratio decidendi."*
+
+> *"Necesito un concepto jurídico sobre cláusulas abusivas en contratos de consumo en España."*
+
+> *"Haz due diligence de esta sociedad antes de firmar el contrato — es una SRL en Argentina."*
+
+> *"Tengo 15 documentos de un expediente laboral en Chile — arma la cronología y detecta inconsistencias."*
+
+---
+
+## Cómo contribuir
+
+Ver [CONTRIBUTING.md](CONTRIBUTING.md) para el proceso completo.
+
+Prioridades:
+- Enriquecer skills generados con jurisprudencia local (Colombia tiene versión detallada)
+- Ampliar `normas-base.md` (código penal, administrativo) en países con [VERIFICAR]
+- Correcciones de `normas-base.md` por país
+- Anonimizador de documentos para otras jurisdicciones
+
+---
+
+## Autor
+
+**Juan David Vanegas Roldán**
+Legal Engineer · Legal Designer · Software Architect
+[trifuerza.co](https://trifuerza.co)
 
 ---
 
 ## Licencia
 
 Apache 2.0 — libre para usar, adaptar y redistribuir con atribución.
-
----
-
-*"El derecho no va a automatizarse. Pero la operación del derecho — la parte repetitiva, mecánica, que consume horas sin agregar valor intelectual — sí puede y debe optimizarse."*

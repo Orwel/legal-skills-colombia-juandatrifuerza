@@ -1,4 +1,12 @@
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.log
+__pycache__/
+.cursor/
+
 # Anonimizador — artefactos de compilación
-anonimizador-documentos/anonimizador/build/
-anonimizador-documentos/anonimizador/dist/*.exe
-anonimizador-documentos/anonimizador/__pycache__/
+jurisdicciones/colombia/anonimizador-documentos/anonimizador/build/
+jurisdicciones/colombia/anonimizador-documentos/anonimizador/dist/*.exe
+jurisdicciones/colombia/anonimizador-documentos/anonimizador/__pycache__/

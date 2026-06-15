@@ -1,0 +1,50 @@
+name: Build macOS app
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'anonimizador-v*'
+
+jobs:
+  build-macos:
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: jurisdicciones/colombia/anonimizador-documentos/anonimizador
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: jurisdicciones/colombia/anonimizador-documentos/anonimizador/requirements.txt
+
+      - name: Compilar y empaquetar
+        run: |
+          chmod +x construir.sh empaquetar_mac.sh
+          ./empaquetar_mac.sh
+
+      - name: Subir artefactos
+        uses: actions/upload-artifact@v4
+        with:
+          name: Anonimizador-Trifuerza-macOS
+          path: |
+            jurisdicciones/colombia/anonimizador-documentos/anonimizador/dist/Anonimizador-Trifuerza.app
+            jurisdicciones/colombia/anonimizador-documentos/anonimizador/dist/Anonimizador-Trifuerza-mac.zip
+            jurisdicciones/colombia/anonimizador-documentos/anonimizador/dist/Anonimizador-Trifuerza-macOS.dmg
+          retention-days: 90
+
+      - name: Adjuntar a Release (solo tags)
+        if: startsWith(github.ref, 'refs/tags/anonimizador-v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            jurisdicciones/colombia/anonimizador-documentos/anonimizador/dist/Anonimizador-Trifuerza-mac.zip
+            jurisdicciones/colombia/anonimizador-documentos/anonimizador/dist/Anonimizador-Trifuerza-macOS.dmg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
